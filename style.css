@@ -1,0 +1,166 @@
+/* Import de la version Regular (Poids 400) */
+@font-face {
+  font-family: "Poppins";
+  src: url("./assets/fonts/Poppins-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+}
+
+/* Import de la version Bold (Poids 700) */
+@font-face {
+  font-family: "Poppins";
+  src: url("./assets/fonts/Poppins-Bold.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+}
+
+/* Import de la version ExtraBold (Poids 800) */
+@font-face {
+  font-family: "Poppins";
+  src: url("./assets/fonts/Poppins-ExtraBold.ttf") format("truetype");
+  font-weight: 800;
+  font-style: normal;
+}
+
+:root {
+  --clr-purple500: hsl(259, 100%, 65%);
+  --clr-red400: hsl(0, 100%, 67%);
+
+  --clr-white: hsl(0, 100%, 100%);
+  --clr-grey100: hsl(0, 0%, 94%);
+  --clr-grey200: hsl(0, 0%, 86%);
+  --clr-grey500: hsl(0, 1%, 44%);
+  --clr-black: hsl(0, 0%, 0%);
+
+  --font-size-input: 2rem;
+  --font-family: "Poppins";
+  --font-weight400: 400;
+  --font-weight700: 700;
+  --font-weight800: 800;
+
+  --clr-bg: var(--clr-grey200);
+  --clr-accent: var(--clr-purple500);
+  --clr-bg-card: var(--clr-white);
+  --clr-text: var(--clr-black);
+  --clr-border: var(--clr-grey500);
+  --clr-arrow: var(--clr-grey100);
+}
+
+body {
+  font-family: var(--font-family), sans-serif;
+  background-color: var(--clr-bg);
+}
+
+h1 {
+  font-family: var(--font-family);
+}
+
+input {
+  width: 80%; /* L'input prend toute la largeur de son compartiment */
+  padding: 0.5rem;
+  font-size: var(--font-size-input);
+  font-weight: var(--font-weight700);
+  font-family: var(--font-family);
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  max-width: 29rem; /* Un peu plus de place pour éviter l'écrasement sur mobile */
+  background-color: var(--clr-bg-card);
+  border-radius: 10px 10px 100px 10px;
+  box-shadow: 5px 2.5px 2.5px rgb(213, 211, 211);
+  margin: auto;
+  padding: 1rem;
+
+  .card__header {
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+
+    .card__header-birth {
+      flex: 1;
+      display: flex;
+      flex-direction: column; /* Aligne le label au-dessus de l'input */
+      gap: 0.25rem; /* Petit espace entre le texte "DAY" et la case */
+      min-width: 0; /* Empêche les flex-items de déborder */
+    }
+  }
+
+  .card__time {
+    align-items: center;
+
+    .card__time-value {
+      font-family: var(--font-family);
+      font-weight: var(--font-weight800);
+    }
+  }
+
+  .card__mid {
+    position: relative;
+    display: flex;
+    justify-content: center; /* Centre le bouton violet sur mobile */
+    align-items: center;
+    margin: 2rem 0;
+
+    &::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 100%;
+      height: 1px;
+      background-color: var(--clr-grey200);
+      z-index: 1; /* Reste sous le bouton */
+    }
+
+    .card__mid-arrow {
+      position: relative;
+      z-index: 2; /* Passe par-dessus la ligne grise */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 4rem;
+      height: 4rem;
+      background-color: var(--clr-accent);
+      border-radius: 50%;
+      cursor: pointer;
+      transition:
+        transform 0.2s ease,
+        background-color 0.2s ease;
+
+      .icon-arrow {
+        width: 2rem; /* Moitié de la taille du cercle (4rem) */
+        height: auto;
+        color: var(
+          --clr-white
+        ); /* Contrôle la couleur du stroke grâce à stroke="currentColor" */
+        display: block;
+      }
+
+      &:hover {
+        transform: scale(1.1);
+        background-color: var(--clr-black);
+      }
+    }
+  }
+}
+
+.birth {
+  text-transform: uppercase;
+  font-family: var(--font-family);
+  font-weight: var(--font-weight700);
+  color: var(--clr-border);
+}
+
+.accent {
+  color: var(--clr-accent);
+}
+
+@media (width >= 768px) {
+  /* sur desktop, on place la flèche à gauche au bout de la ligne grise*/
+  .card__mid-arrow {
+    left: 44%;
+  }
+}

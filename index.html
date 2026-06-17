@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
+
+    <link rel="stylesheet" href="./style.css" />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./assets/images/favicon-32x32.png"
+    />
+    <script src="./script.js" defer></script>
+
+    <title>Frontend Mentor | Age calculator app</title>
+
+    <style>
+      .attribution {
+        font-size: 0.6875rem;
+        text-align: center;
+      }
+      .attribution a {
+        color: hsl(228, 45%, 44%);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="card">
+      <div class="card__header">
+        <div class="card__header-birth">
+          <label for="day" class="birth"> Day </label
+          ><input id="day" type="number" min="1" max="31" placeholder="DD" />
+        </div>
+        <div class="card__header-birth">
+          <label for="month" class="birth">Month</label
+          ><input id="month" type="number" min="1" max="12" placeholder="MM" />
+        </div>
+        <div class="card__header-birth">
+          <label for="year" class="birth">Year</label
+          ><input
+            id="year"
+            type="number"
+            min="1900"
+            max="2024"
+            placeholder="YYYY"
+          />
+        </div>
+      </div>
+      <div class="card__mid">
+        <div class="card__mid-arrow">
+          <svg class="icon-arrow"><use href="#arrow"></use></svg>
+        </div>
+      </div>
+      <div class="card__time">
+        <h1 class="card__time-value"><span class="accent">-- </span>years</h1>
+        <h1 class="card__time-value"><span class="accent">-- </span> months</h1>
+        <h1 class="card__time-value"><span class="accent">-- </span> days</h1>
+      </div>
+    </div>
+
+    <footer class="attribution">
+      Challenge by
+      <a href="https://www.frontendmentor.io?ref=challenge">Frontend Mentor</a>.
+      Coded by <a href="#">Your Name Here</a>.
+    </footer>
+  </body>
+</html>
+
+<!--Sprite SVG-->
+<div style="display: none">
+  <svg xmlns="http://www.w3.org/2000/svg" id="arrow" viewBox="0 0 46 44">
+    <g fill="none" stroke="currentColor" stroke-width="2">
+      <path
+        d="M1 22.019C8.333 21.686 23 25.616 23 44M23 44V0M45 22.019C37.667 21.686 23 25.616 23 44"
+      />
+    </g>
+  </svg>
+</div>
